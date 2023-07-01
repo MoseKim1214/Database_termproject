@@ -26,22 +26,6 @@ $getStoreID = mysqli_query($conn, $getStoreIDQuery);
 $storeIDRow = mysqli_fetch_assoc($getStoreID);
 $storeID = $storeIDRow['storeID'];
 
-echo "menuID: ";
-var_dump($menuID);
-echo "saleID: ";
-var_dump($saleID);
-echo "IceHot: ";
-var_dump($IceHot);
-echo "addShot: ";
-var_dump($addShot);
-echo "addWhip: ";
-var_dump($addWhip);
-echo "storeID: ";
-var_dump($storeID);
-echo "totalPrice: ";
-var_dump($totalPrice);
-echo "orderID: ";
-var_dump($orderID);
 
 $result = mysqli_query($conn, "insert into Order_Details (orderID, IceHot, addShot, addWhip, totalPrice, menuID, storeID, saleID) values ('$orderID', '$IceHot', $addShot, '$addWhip', $totalPrice, '$menuID', '$storeID', '$saleID')");
 mysqli_query($conn, "update Order_Sales SET Sales = Sales + $totalPrice where saleID = '$saleID'");
